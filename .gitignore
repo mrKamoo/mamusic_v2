@@ -1,0 +1,51 @@
+/vendor/
+/node_modules/
+
+/.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+
+/public/storage
+/storage/*.key
+
+# Laravel 5 & 6 cached files
+.env.backup
+.env.testing
+.env.example
+.env.*
+/.env.*
+
+/storage/*.key
+/storage/app/public
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+/storage/logs
+
+# IDEs and editors
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# System files
+.DS_Store
+Thumbs.db
+
+# PHPUnit
+.phpunit.result.cache
+
+# composer
+composer.phar
+
+# npm / yarn
+npm-debug.log
+yarn-error.log
+
+# Laravel Mix
+/public/hot
+/public/mix-manifest.json
+/public/css/
+public/js/
