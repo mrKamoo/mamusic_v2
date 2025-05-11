@@ -24,7 +24,7 @@ class DiscogsController extends Controller
     public function show($id)
     {
         $album = Album::findOrFail($id);
-        return view('album-detail', compact('album'));
+        return view('album-detail', compact('album', 'id'));
     }
 
     public function search(Request $request)
