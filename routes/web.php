@@ -8,13 +8,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/albums', function () {
-    return view('discogs');
-})->name('albums.list');
-
-Route::get('/albums/{id}', function ($id) {
-    return view('album-detail', compact('id'));
-})->name('album.show');
+Route::get('/albums', [DiscogsController::class, 'index'])->name('albums.list');
+Route::get('/albums/search', [DiscogsController::class, 'search'])->name('albums.search');
+Route::get('/albums/{id}', [DiscogsController::class, 'show'])->name('album.show');
 
 Route::middleware([
     'auth:sanctum',

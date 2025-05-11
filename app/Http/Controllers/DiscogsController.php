@@ -8,17 +8,30 @@ use App\Models\Album;
 
 class DiscogsController extends Controller
 {
-    public function search(Request $request, DiscogsService $discogsService)
+    protected $discogsService;
+
+    public function __construct(DiscogsService $discogsService)
+    {
+        $this->discogsService = $discogsService;
+    }
+
+    public function index()
+    {
+        $albums = Album::all();
+        return view('discogs', compact('albums'));
+    }
+
+    public function show($id)
+    {
+        $album = Album::findOrFail($id);
+        return view('album-detail', compact('album'));
+    }
+
+    public function search(Request $request)
     {
         $query = $request->input('q', 'Daft Punk');
-        $results = $discogsService->searchArtist($query);
+        $results = $this->discogsService->searchArtist($query);
         $results = $results['results'];
         return view('discogs', compact('results'));
     }
-
-    public function showAlbums()
-{
-    $albums = Album::all();
-    return view('discogs', compact('albums'));
-}
 }
